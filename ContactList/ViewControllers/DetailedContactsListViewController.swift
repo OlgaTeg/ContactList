@@ -21,9 +21,9 @@ class DetailedContactsListViewController: UITableViewController {
         2
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        contacts[section].fullName
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        contacts[section].fullName
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "detailPerson", for: indexPath)
@@ -46,4 +46,23 @@ class DetailedContactsListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+}
+
+extension DetailedContactsListViewController {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let fullNameLabel = UILabel(frame: CGRect(
+            x: 16, y: 3, width: tableView.frame.width, height: 20
+        ))
+        fullNameLabel.text = contacts[section].fullName
+        fullNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        fullNameLabel.textColor = .white
+        fullNameLabel.textAlignment = .left
+        
+        let contentView = UIView()
+        contentView.addSubview(fullNameLabel)
+        return contentView
+    }
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.backgroundColor = .gray
+    }
 }
