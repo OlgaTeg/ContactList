@@ -26,7 +26,7 @@ extension Person {
         let phones = DataStore.shared.phones.shuffled()
         let emails = DataStore.shared.emails.shuffled()
         
-        for index in 0..<DataStore.shared.names.count {
+        for index in 0..<names.count {
             let person = Person(
                 name: names[index],
                 lastName: lastNames[index],
@@ -38,3 +38,4 @@ extension Person {
         return persons
     }
 }
+

@@ -59,4 +59,5 @@ class DataStore {
         "d1w28lkg@yandex.ru",
         "t6ro3@gmail.com"
     ]
+    private init() {}
 }
